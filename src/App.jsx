@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Linha from './Components/Linha'
 import Carrinho from './Components/Carrinho'
+import Navbar from './Components/Navbar'
+
 
 export default function App() {
   const [carrinho, setCarrinho] = useState([])
@@ -17,8 +19,11 @@ export default function App() {
   }
 
   return (
-    <div>
+    <>
+      <Navbar />
       <Linha Adicionar={Adicionar} />
-    </div>
+    </>
+
+
   )
 }

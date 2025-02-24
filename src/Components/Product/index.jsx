@@ -1,8 +1,21 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { Texto, ContainerColorido, ContainerNormal } from '../Components'
 
 const Product = styled.div`
 
+width: 30vw;
+height: 60vh;
+background: white;
+display: flex;
+color: #8b3e00;
+flex-direction: column;
+text-align: center;
+
+button{
+    background-color: #ffbcda;
+    height: 4vh;
+}
 `;
 
 export default ({ lista, Adicionar }) => {
@@ -61,20 +74,24 @@ export default ({ lista, Adicionar }) => {
 
     return (
         <Product>
-            <div>
-                <button onClick={() => { Option('menos', 'sabor') }}>-</button>
-                <h1>{lista[sabor - 1].name}</h1>
-                <button onClick={() => { Option('mais', 'sabor') }}>-</button>
-            </div>
-            <h1>R${lista[sabor - 1].price},00</h1>
-            <div>
-                <div className="quantidade">
+            <ContainerNormal>
+                <ContainerColorido>
+                    <button onClick={() => { Option('menos', 'sabor') }}>-</button>
+                    <Texto>{lista[sabor - 1].name}</Texto>
+                    <button onClick={() => { Option('mais', 'sabor') }}>-</button>
+                </ContainerColorido>
+            </ContainerNormal>
+            <ContainerNormal>
+                <Texto>R${lista[sabor - 1].price},00</Texto>
+            </ContainerNormal>
+            <ContainerNormal>
+                <ContainerColorido>
                     <button onClick={() => { Option('menos', 'quantidade') }}>-</button>
-                    <h1>{quantidade}</h1>
+                    <Texto>{quantidade}</Texto>
                     <button onClick={() => { Option('mais', 'quantidade') }}>+</button>
-                </div>
+                </ContainerColorido>
                 <button onClick={() => { Adicionar(obj) }}>Adicionar</button>
-            </div>
+            </ContainerNormal>
         </Product>
     )
 }
