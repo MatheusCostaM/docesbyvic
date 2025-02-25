@@ -1,26 +1,100 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Linha from './Components/Linha'
 import Carrinho from './Components/Carrinho'
 import Navbar from './Components/Navbar'
 
 
 export default function App() {
-  const [carrinho, setCarrinho] = useState([])
+  const [carrinho, setCarrinho] = useState([]);
+  const [openCarrinho, setOpenCarrinho] = useState(true);
+  const [total, setTotal] = useState(0)
+  const [mensagem, setMensagem] = useState("")
 
-  function Adicionar(obj) {
-    newCarrinho = carrinho
+  useEffect(() => {
+    let newTotal = 0;
 
-    newCarrinho.push(obj)
+    for (let i = 0; i < carrinho.length; i++) {
+      newTotal += (carrinho[i].price * carrinho[i].quantity);
+    }
 
-    console.log(carrinho)
+    setTotal(newTotal);
 
-    setCarrinho(newCarrinho)
+  }, [carrinho]);
+
+  const scroll = (id) => {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  const Abrir = () => {
+
+    let newOpenCarrinho = openCarrinho;
+
+    if (newOpenCarrinho == false) {
+      newOpenCarrinho = true;
+    } else {
+      newOpenCarrinho = false;
+    }
+
+    setOpenCarrinho(newOpenCarrinho);
+
+  }
+
+  const Adicionar = (obj) => {
+    let newCarrinho = [...carrinho];
+
+    newCarrinho.push(obj);
+
+    setCarrinho(newCarrinho);
+
+  }
+
+  const Deletar = (name, quantidade) => {
+
+    let newCarrinho = [...carrinho]
+
+    for (let i = 0; i < carrinho.length; i++) {
+      if (name == carrinho[i].name && quantidade == carrinho[i].quantity) {
+        newCarrinho.splice(i, 1);
+
+        break
+      }
+
+    }
+    setCarrinho(newCarrinho);
+  }
+
+  const LinkarPedido = () => {
+
+    let newMensage = "Quero fazer um pedido."
+    let newText = ""
+
+    if (carrinho.length > 0) {
+
+      newMensage = ""
+
+      newMensage += "Meu Pedido \n"
+
+      for (let i = 0; i < carrinho.length; i++) {
+
+        newText = `${carrinho[i].quantity} - ${carrinho[i].name}: R$${carrinho[i].price},00`
+
+        newMensage += newText + "\n";
+
+
+      }
+
+      newMensage += `Valor Total: R$${total},00`
+
+    }
+
+    setMensagem(encodeURIComponent(newMensage))
 
   }
 
   return (
     <>
-      <Navbar />
+      <Navbar Abrir={Abrir} />
+      <Carrinho openCarrinho={openCarrinho} Abrir={Abrir} carrinho={carrinho} total={total} Deletar={Deletar} LinkarPedido={LinkarPedido} mensagem={mensagem} />
       <Linha Adicionar={Adicionar} />
     </>
 

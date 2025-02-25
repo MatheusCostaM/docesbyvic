@@ -7,7 +7,7 @@ const Imagens = [
         'img': cones
     },
     {
-        'type': 'pote',
+        'type': 'alfajor',
         'img': potes
     }
 ]

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Lines from '../Dados/DBLines';
-import { Titulo } from '../Components'
+import { Titulo, Clickavel } from '../Components'
 
 const Navbar = styled.div`
 
@@ -10,29 +10,40 @@ display: flex;
 justify-content: space-around;
 background-color: white;
 color: #8b3e00;
-align-itens: center;
+align-items: center;
+position: fixed;
+z-index: 1;
+box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
 div{
-    width: 25%;
+    width: 30%;
     display: flex;
     justify-content: space-around;
     align-itens: center;
+
+    img {
+        max-height: 8vh;
+    }
 }
 
 `
 
-export default () => {
+export default ({ Abrir }) => {
 
 
     return (
         <Navbar>
-            <img src='/logo.png' />
+
+            <Clickavel><img src='/logo.png' /></Clickavel>
+
             <div>
                 {Lines.map((line, index) => (
-                    <Titulo key={index}>{line}</Titulo>)
+                    <Clickavel><Titulo key={index}>{line}</Titulo></Clickavel>)
                 )}
             </div>
-            <img src='/cart.svg' />
+
+            <Clickavel Funcao={Abrir}><img src='/cart.svg' /></Clickavel>
+
         </Navbar>
     )
 }
