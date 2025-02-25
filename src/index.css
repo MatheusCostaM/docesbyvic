@@ -46,7 +46,7 @@ button {
   transition: border-color 0.25s;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   background-color: #ffbcda;
-  height: 4vh;
+  height: fit-content;
 }
 
 button:hover {

@@ -60,6 +60,10 @@ export default function App() {
       }
 
     }
+
+    if (name == "tudo") {
+      newCarrinho = [];
+    }
     setCarrinho(newCarrinho);
   }
 
@@ -93,7 +97,7 @@ export default function App() {
 
   return (
     <>
-      <Navbar Abrir={Abrir} />
+      <Navbar Abrir={Abrir} scroll={scroll} />
       <Carrinho openCarrinho={openCarrinho} Abrir={Abrir} carrinho={carrinho} total={total} Deletar={Deletar} LinkarPedido={LinkarPedido} mensagem={mensagem} />
       <Linha Adicionar={Adicionar} />
     </>

@@ -5,9 +5,9 @@ import { Clickavel, Texto } from '../Components';
 const Carrinho = styled.div`
 
 width: 70vw;
-height: 70vh;
+height: 80vh;
 background-color: white;
-top: 50%;
+top: 55%;
 left: 50%;
 transform: translate(-50%, -50%);
 position: fixed;
@@ -18,26 +18,53 @@ justify-content: space-around;
 align-items: center;
 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
+.titulotable{
+    display: flex;
+    width: 90%;
+    height: 13%;
+    align-items: center;
+    justify-content: space-between;
+    color: coral;
+}
+
 div{
     margin: 1vh;
 }
+
+
 
 .divtable{
     color: white;
     width: 80%;
     height: 80%;
+    overflow-y: auto;
+    
     
     table {
+
+
         width: 100%;
 
+        .divlixo{
+            display: flex;
+            max-height: 6.5vh;
+            align-items: center;
+            justify-content: center;
+
+            margin: 0;
+                padding: 0;
+            
+        }
+
         th {
+
             img {
-                filter: invert(0%)
+                filter: invert(10%) sepia(60%) saturate(500%) hue-rotate(10deg);
             }
         }
 
         img {
-            max-height: 3vh;
+            max-height: 4vh;
             filter: invert(100%)
         }
     }
@@ -45,11 +72,14 @@ div{
 
 th {
     color: #8b3e00;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: #fff7f7;
 }
 
 td {
     
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: #8b3e00;
     text-align: center;
     
@@ -66,7 +96,9 @@ img{
 section{
     display: flex;
     width: 80%;
+    height: 15%;
     justify-content: space-around;
+    align-items: center;
 }
 
 
@@ -76,26 +108,48 @@ a {
   
   }
 
+  ::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff7f7;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8b3e00;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b55e1e;
+}
+
 `;
 
 export default ({ carrinho, openCarrinho, Abrir, Deletar, total, LinkarPedido, mensagem }) => {
 
     return (
         <Carrinho $openCarrinho={openCarrinho}>
-            <Clickavel Funcao={Abrir}><img src='/cart.svg' /></Clickavel>
+            <div className='titulotable'>
+                <Clickavel Funcao={Abrir}><img src='/cart.svg' /></Clickavel>
+                <Clickavel Funcao={Abrir}><Texto tamanho='2'>X</Texto></Clickavel>
+            </div>
             <div className='divtable'>
                 <table>
                     <colgroup>
-                        <col />
-                        <col style={{ width: "60%" }} />
-                        <col />
+                        <col style={{ width: "25%" }} />
+                        <col style={{ width: "50%" }} />
+                        <col style={{ width: "15%" }} />
+                        <col style={{ width: "10%" }} />
                     </colgroup>
                     <thead>
                         <tr>
-                            <th><Texto>Quantidade</Texto></th>
-                            <th><Texto>Nome</Texto></th>
-                            <th><Texto>Preço</Texto></th>
-                            <th><Texto><img src="/lixo.png" /></Texto></th>
+                            <th><Texto tamanho='1'>Quantidade</Texto></th>
+                            <th><Texto tamanho='1'>Nome</Texto></th>
+                            <th><Texto tamanho='1'>Preço</Texto></th>
+                            <th><Clickavel Funcao={() => { Deletar("tudo") }}><div className='divlixo'><img src="/lixo.png" /></div></Clickavel></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -104,7 +158,7 @@ export default ({ carrinho, openCarrinho, Abrir, Deletar, total, LinkarPedido, m
                                 <td><Texto>{item.quantity}</Texto></td>
                                 <td><Texto>{item.name}</Texto></td>
                                 <td><Texto>R${item.price},00</Texto></td>
-                                <td><Clickavel Funcao={() => { Deletar(item.name, item.quantity) }}><Texto><img src="/lixo.png" /></Texto></Clickavel></td>
+                                <td><div className='divlixo'><Clickavel Funcao={() => { Deletar(item.name, item.quantity) }}><Texto><img src="/lixo.png" /></Texto></Clickavel></div></td>
                             </tr>
                         ))}
                     </tbody>

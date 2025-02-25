@@ -76,7 +76,6 @@ export const ContainerColorido = styled.div`
     align-items: center;
     background-color: #fff7f7;
     height: fit-content;
-    max-width: 80%;
     border-radius: 10px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
@@ -84,17 +83,31 @@ export const ContainerColorido = styled.div`
 
 const Title = styled.div`
 
-    font-size: 2rem;
-    margin: 0vh 0vh 0vh;
+    font-size: ${({ $tamanho }) => $tamanho}rem;
+    margin: 0;
     padding:0;
     font-weight: bold;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 
 `
 
-export const Titulo = ({ children }) => {
+export const Titulo = ({ children, tamanho }) => {
+
+    let tamanhoTexto = 1;
+
+    switch (tamanho) {
+
+        case "1":
+            tamanhoTexto = 2;
+            break
+        case "2":
+            tamanhoTexto = 4;
+            break
+
+    }
+
     return (
-        <Title>
+        <Title $tamanho={tamanhoTexto}>
             {children.toUpperCase()}
         </Title>
     )

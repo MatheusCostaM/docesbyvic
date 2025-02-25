@@ -3,7 +3,7 @@ import lista from '../Dados/DBProducts';
 import Lines from '../Dados/DBLines';
 import styled from 'styled-components';
 import Imagens, { auto } from '../Dados/DBImages';
-import { Titulo } from '../Components'
+import { Titulo, Texto } from '../Components'
 
 const Line = styled.div`
 
@@ -12,6 +12,32 @@ display: flex;
 flex-direction: column;
 align-items: center;
 width: 100vw;
+
+.sobre{
+    width: 50vw;
+
+    img {
+        width: 40%;
+    }
+
+    .redes{
+
+        display: flex;
+        justify-content: space-around;
+        width: 30%;
+        margin: 2vh;
+
+
+
+        a {
+            width: 20%;
+            
+            img{
+                width:100%;
+            }
+        }
+    }
+}
 
 
 @keyframes appear {
@@ -84,7 +110,7 @@ export default ({ Adicionar }) => {
 
                 return (
 
-                    <Tela key={index}>
+                    <Tela key={index} id={index}>
 
                         <ContainersProject >
                             <Titulo tamanho="2">{nome}</Titulo>
@@ -96,6 +122,17 @@ export default ({ Adicionar }) => {
 
                 );
             })}
+
+            <Tela id="sobre">
+                <ContainersProject className='sobre'>
+                    <img src='/logo.png' />
+                    <Texto tamanho="1">Doces feitos com amor e carinho</Texto>
+                    <div className='redes'>
+                        <a href="https://wa.me/5511987313427" target='_blank'><img src='/what.svg' /></a>
+                        <a href="https://www.instagram.com/docesby_vic?igsh=MXZwMDk4bnoyYnMycw==" target='_blank'><img src='/insta.svg' /></a>
+                    </div>
+                </ContainersProject>
+            </Tela>
         </Line>
     )
 }

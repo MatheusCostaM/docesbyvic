@@ -16,10 +16,10 @@ z-index: 1;
 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
 div{
-    width: 30%;
     display: flex;
     justify-content: space-around;
     align-itens: center;
+    margin: 2vh;
 
     img {
         max-height: 8vh;
@@ -28,17 +28,17 @@ div{
 
 `
 
-export default ({ Abrir }) => {
+export default ({ Abrir, scroll }) => {
 
 
     return (
         <Navbar>
 
-            <Clickavel><img src='/logo.png' /></Clickavel>
+            <Clickavel Funcao={() => { scroll("sobre") }}><img src='/logo.png' /></Clickavel>
 
             <div>
                 {Lines.map((line, index) => (
-                    <Clickavel><Titulo key={index}>{line}</Titulo></Clickavel>)
+                    <Clickavel Funcao={() => { scroll(index) }} key={index}><Titulo tamanho='1'>{line}</Titulo></Clickavel>)
                 )}
             </div>
 

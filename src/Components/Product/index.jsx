@@ -1,19 +1,38 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Texto, ContainerColorido, ContainerNormal } from '../Components'
+import { Texto, ContainerColorido, ContainerNormal, Titulo } from '../Components'
 
 const Product = styled.div`
 
 width: 30vw;
-height: 60vh;
-background: white;
+height: 55vh;
 display: flex;
 color: #8b3e00;
 flex-direction: column;
 text-align: center;
-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+.sabor{
+    width: 100%;
+}
 
 `;
+
+const ContainerProduct = styled.div`
+
+background-color: white;
+height: fit-content;
+border-radius: 20px;
+box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+
+div{
+    margin: 2vh;
+}
+
+`
+
 
 export default ({ lista, Adicionar }) => {
 
@@ -60,6 +79,10 @@ export default ({ lista, Adicionar }) => {
 
         func(newValue)
 
+        if (func == setSabor) {
+            setQuantidade(1);
+        }
+
     }
 
     let obj = {
@@ -71,24 +94,27 @@ export default ({ lista, Adicionar }) => {
 
     return (
         <Product>
+            <Titulo tamanho='1'>Sabor</Titulo>
             <ContainerNormal>
-                <ContainerColorido>
+
+                <ContainerColorido className='sabor'>
                     <button onClick={() => { Option('menos', 'sabor') }}>&larr;</button>
                     <Texto tamanho="1">{lista[sabor - 1].name}</Texto>
                     <button onClick={() => { Option('mais', 'sabor') }}>&rarr;</button>
                 </ContainerColorido>
             </ContainerNormal>
-            <ContainerNormal>
+            <ContainerProduct><ContainerNormal>
                 <Texto tamanho="2">R${lista[sabor - 1].price},00</Texto>
             </ContainerNormal>
-            <ContainerNormal>
-                <ContainerColorido>
-                    <button onClick={() => { Option('menos', 'quantidade') }}>-</button>
-                    <Texto>{quantidade}</Texto>
-                    <button onClick={() => { Option('mais', 'quantidade') }}>+</button>
-                </ContainerColorido>
-                <button onClick={() => { Adicionar(obj) }}>Adicionar</button>
-            </ContainerNormal>
+                <ContainerNormal>
+                    <ContainerColorido>
+                        <button onClick={() => { Option('menos', 'quantidade') }}>-</button>
+                        <Texto>{quantidade}</Texto>
+                        <button onClick={() => { Option('mais', 'quantidade') }}>+</button>
+                    </ContainerColorido>
+                    <button onClick={() => { Adicionar(obj) }}><Texto tamanho="1">Adicionar</Texto></button>
+                </ContainerNormal>
+            </ContainerProduct>
         </Product>
     )
 }
