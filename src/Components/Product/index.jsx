@@ -5,6 +5,7 @@ import { Texto, ContainerColorido, ContainerNormal, Titulo } from '../Components
 const Product = styled.div`
 
 width: 30vw;
+min-width: 50vh;
 height: 55vh;
 display: flex;
 color: #8b3e00;

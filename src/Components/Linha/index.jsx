@@ -31,13 +31,21 @@ width: 100vw;
 
         a {
             width: 20%;
+            min-width: 5vh;
             
             img{
                 width:100%;
             }
         }
     }
+
+    @media only screen and (max-width: 600px) {
+    
+        width: 100%;
+        
+    }
 }
+
 
 
 @keyframes appear {
@@ -61,10 +69,10 @@ const ContainersProject = styled.div`
     align-items: center;
     text-align: center;
     color: #8b3e00;
+    min-width: 50vh;
 
     img {
         width: 80%;
-
     }
 
 `
@@ -75,9 +83,14 @@ const Tela = styled.div`
     align-items: center;
     width: 60vw;
     height: 100vh;
-    flex-wrap; wrap;
+    flex-wrap: wrap;
 
-
+    @media only screen and (max-width: 600px) {
+        
+        width: 100vw;
+        height: 110vh;
+    }
+    
     animation: appear linear;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;

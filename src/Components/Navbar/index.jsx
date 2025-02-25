@@ -15,6 +15,13 @@ position: fixed;
 z-index: 1;
 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
+.menu{
+    @media only screen and (max-width: 600px) {
+        
+        display:none;
+      }
+}
+
 div{
     display: flex;
     justify-content: space-around;
@@ -36,7 +43,7 @@ export default ({ Abrir, scroll }) => {
 
             <Clickavel Funcao={() => { scroll("sobre") }}><img src='/logo.png' /></Clickavel>
 
-            <div>
+            <div className='menu'>
                 {Lines.map((line, index) => (
                     <Clickavel Funcao={() => { scroll(index) }} key={index}><Titulo tamanho='1'>{line}</Titulo></Clickavel>)
                 )}
