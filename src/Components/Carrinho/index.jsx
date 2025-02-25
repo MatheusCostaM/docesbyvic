@@ -4,23 +4,6 @@ import { Clickavel, Texto } from '../Components';
 
 const Carrinho = styled.div`
 
-@media only screen and (max-width: 600px) {
-        
-    width: 100vw;
-    height: 85vh;
-
-    table{
-
-        h1{
-            font-size: 0.6rem !important;
-        }
-        img{
-            width: 2vh;
-        }
-    }
-    
-}
-
 width: 70vw;
 height: 80vh;
 background-color: white;
@@ -141,6 +124,23 @@ a {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #b55e1e;
+}
+
+@media only screen and (max-width: 600px) {
+        
+    width: 100vw;
+    height: 85vh;
+
+    table{
+
+        h1{
+            font-size: 0.6rem !important;
+        }
+        img{
+            width: 2vh;
+        }
+    }
+    
 }
 
 `;

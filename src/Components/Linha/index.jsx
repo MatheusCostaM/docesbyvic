@@ -101,6 +101,16 @@ export default ({ Adicionar }) => {
 
     return (
         <Line>
+            <Tela id="sobre">
+                <ContainersProject className='sobre'>
+                    <img src='/logo.png' />
+                    <Texto tamanho="1">Doces feitos com amor e carinho</Texto>
+                    <div className='redes'>
+                        <a href="https://wa.me/5511987313427" target='_blank'><img src='/what.svg' /></a>
+                        <a href="https://www.instagram.com/docesby_vic?igsh=MXZwMDk4bnoyYnMycw==" target='_blank'><img src='/insta.svg' /></a>
+                    </div>
+                </ContainersProject>
+            </Tela>
             {Lines.map((line, index) => {
                 let linelist = [];
 
@@ -135,17 +145,6 @@ export default ({ Adicionar }) => {
 
                 );
             })}
-
-            <Tela id="sobre">
-                <ContainersProject className='sobre'>
-                    <img src='/logo.png' />
-                    <Texto tamanho="1">Doces feitos com amor e carinho</Texto>
-                    <div className='redes'>
-                        <a href="https://wa.me/5511987313427" target='_blank'><img src='/what.svg' /></a>
-                        <a href="https://www.instagram.com/docesby_vic?igsh=MXZwMDk4bnoyYnMycw==" target='_blank'><img src='/insta.svg' /></a>
-                    </div>
-                </ContainersProject>
-            </Tela>
         </Line>
     )
 }
