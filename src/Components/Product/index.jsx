@@ -99,9 +99,9 @@ export default ({ lista, Adicionar }) => {
             <ContainerNormal>
 
                 <ContainerColorido className='sabor'>
-                    <button onClick={() => { Option('menos', 'sabor') }}>&larr;</button>
+                    <button onClick={() => { Option('menos', 'sabor') }}><Texto tamanho="1">&larr;</Texto></button>
                     <Texto tamanho="1">{lista[sabor - 1].name}</Texto>
-                    <button onClick={() => { Option('mais', 'sabor') }}>&rarr;</button>
+                    <button onClick={() => { Option('mais', 'sabor') }}><Texto tamanho="1">&rarr;</Texto></button>
                 </ContainerColorido>
             </ContainerNormal>
             <ContainerProduct><ContainerNormal>
@@ -109,9 +109,9 @@ export default ({ lista, Adicionar }) => {
             </ContainerNormal>
                 <ContainerNormal>
                     <ContainerColorido>
-                        <button onClick={() => { Option('menos', 'quantidade') }}>-</button>
+                        <button onClick={() => { Option('menos', 'quantidade') }}><Texto>-</Texto></button>
                         <Texto>{quantidade}</Texto>
-                        <button onClick={() => { Option('mais', 'quantidade') }}>+</button>
+                        <button onClick={() => { Option('mais', 'quantidade') }}><Texto>+</Texto></button>
                     </ContainerColorido>
                     <button onClick={() => { Adicionar(obj) }}><Texto tamanho="1">Adicionar</Texto></button>
                 </ContainerNormal>

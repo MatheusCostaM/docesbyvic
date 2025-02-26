@@ -133,8 +133,9 @@ a {
 
     table{
 
-        h1{
-            font-size: 0.6rem !important;
+        p{
+            font-size: 0.7rem !important;
+            margin:0;
         }
         img{
             width: 2vh;
@@ -163,18 +164,18 @@ export default ({ carrinho, openCarrinho, Abrir, Deletar, total, LinkarPedido, m
                     </colgroup>
                     <thead>
                         <tr>
-                            <th><Texto tamanho='1'>Quantidade</Texto></th>
-                            <th><Texto tamanho='1'>Nome</Texto></th>
-                            <th><Texto tamanho='1'>Preço</Texto></th>
+                            <th><p>QUANTIDADE</p></th>
+                            <th><p>NOME</p></th>
+                            <th><p>PREÇO</p></th>
                             <th><Clickavel Funcao={() => { Deletar("tudo") }}><div className='divlixo'><img src="/lixo.png" /></div></Clickavel></th>
                         </tr>
                     </thead>
                     <tbody>
                         {carrinho.map((item, index) => (
                             <tr key={index}>
-                                <td><Texto>{item.quantity}</Texto></td>
-                                <td><Texto>{item.name}</Texto></td>
-                                <td><Texto>R${item.price},00</Texto></td>
+                                <td><p>{item.quantity}</p></td>
+                                <td><p>{item.name}</p></td>
+                                <td><p>R${item.price},00</p></td>
                                 <td><div className='divlixo'><Clickavel Funcao={() => { Deletar(item.name, item.quantity) }}><Texto><img src="/lixo.png" /></Texto></Clickavel></div></td>
                             </tr>
                         ))}
