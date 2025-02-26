@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Clickavel, Texto } from '../Components';
 
@@ -24,8 +24,10 @@ box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     height: 13%;
     align-items: center;
     justify-content: space-between;
-    color: coral;
+    color: #8b3e00;
+    
 }
+
 
 div{
     margin: 1vh;
@@ -141,6 +143,16 @@ a {
             width: 2vh;
         }
     }
+    .titulotable{
+        
+        width: 100%;
+        
+        img{
+            max-height: 8vh;
+        }
+        
+        
+    }
     
 }
 
@@ -152,7 +164,8 @@ export default ({ carrinho, openCarrinho, Abrir, Deletar, total, LinkarPedido, m
         <Carrinho $openCarrinho={openCarrinho}>
             <div className='titulotable'>
                 <Clickavel Funcao={Abrir}><img src='/cart.svg' /></Clickavel>
-                <Clickavel Funcao={Abrir}><Texto tamanho='2'>X</Texto></Clickavel>
+                <Texto tamanho='2'>Seu Pedido</Texto>
+                <Clickavel className='deletar' Funcao={Abrir}><Texto tamanho='2'>X</Texto></Clickavel>
             </div>
             <div className='divtable'>
                 <table>
