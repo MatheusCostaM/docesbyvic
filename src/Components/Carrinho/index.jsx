@@ -197,7 +197,22 @@ export default ({ carrinho, openCarrinho, Abrir, Deletar, total, LinkarPedido, m
             </div>
             <section>
                 <button><Texto>R${total},00</Texto></button>
-                <Clickavel Funcao={LinkarPedido}><button><a href={`https://wa.me/5511987313427?text=${mensagem}`} target='_blank'><Texto>Finalizar Pedido</Texto></a></button></Clickavel>
+                <Clickavel Funcao={LinkarPedido}>
+                    <button>
+                        <a
+                            href={mensagem}
+                            target={mensagem !== "" ? "_blank" : ""}
+                            rel="noopener noreferrer"
+                            onClick={(event) => {
+                                if (mensagem == "") {
+                                    event.preventDefault();
+                                }
+                            }}
+                        >
+                            <Texto>Finalizar Pedido</Texto>
+                        </a>
+                    </button>
+                </Clickavel>
             </section>
 
         </Carrinho >

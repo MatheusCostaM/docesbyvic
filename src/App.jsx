@@ -42,8 +42,18 @@ export default function App() {
 
   const Adicionar = (obj) => {
     let newCarrinho = [...carrinho];
+    let adicionado = false;
 
-    newCarrinho.push(obj);
+    for (let i = 0; i < carrinho.length; i++) {
+      if (newCarrinho[i].name == obj.name) {
+        newCarrinho[i].quantity += obj.quantity;
+        adicionado = true;
+      }
+    }
+
+    if (!adicionado) {
+      newCarrinho.push(obj);
+    }
 
     setCarrinho(newCarrinho);
 
@@ -92,7 +102,15 @@ export default function App() {
 
     }
 
-    setMensagem(encodeURIComponent(newMensage))
+    newMensage = `https://wa.me/5511987313427?text=${encodeURIComponent(newMensage)}`
+
+    if (total == 0 || total >= 20) {
+      setMensagem(newMensage)
+    }
+    else {
+      alert("Valor mínimo de R$20,00 por pedido.")
+      setMensagem("")
+    }
 
   }
 

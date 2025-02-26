@@ -3,8 +3,12 @@ import potes from '../../assets/potes.png'
 
 const Imagens = [
     {
-        'type': 'cone',
+        'type': 'cones',
         'img': cones
+    },
+    {
+        'type': 'potes',
+        'img': potes
     },
     {
         'type': 'alfajor',

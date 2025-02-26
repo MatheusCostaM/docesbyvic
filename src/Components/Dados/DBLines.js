@@ -1,3 +1,3 @@
-const Lines = ['cone', 'alfajor']
+const Lines = ['cones', 'potes', 'alfajor']
 
 export default Lines;
