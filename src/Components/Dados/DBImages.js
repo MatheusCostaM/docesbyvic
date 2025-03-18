@@ -1,5 +1,6 @@
 import cones from '../../assets/cones.png'
 import potes from '../../assets/potes.png'
+import alfajor from '../../assets/alfajor.png'
 
 const Imagens = [
     {
@@ -12,7 +13,7 @@ const Imagens = [
     },
     {
         'type': 'alfajor',
-        'img': potes
+        'img': alfajor
     }
 ]
 
