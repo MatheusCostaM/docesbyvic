@@ -164,7 +164,7 @@ export default ({ carrinho, openCarrinho, Abrir, Deletar, total, LinkarPedido, m
         <Carrinho $openCarrinho={openCarrinho}>
             <div className='titulotable'>
                 <Clickavel Funcao={Abrir}><img src='/cart.svg' /></Clickavel>
-                <Texto tamanho='2'>Seu Pedido</Texto>
+                <Texto tamanho="1">Seu Pedido</Texto>
                 <Clickavel className='deletar' Funcao={Abrir}><Texto tamanho='2'>X</Texto></Clickavel>
             </div>
             <div className='divtable'>

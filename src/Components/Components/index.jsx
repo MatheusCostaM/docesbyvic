@@ -5,7 +5,7 @@ const Txt = styled.h1`
 font-size: ${({ $tamanho }) => $tamanho}rem;
 margin: 0;
 padding:0;
-text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
 
 `
 
